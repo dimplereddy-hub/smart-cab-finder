@@ -319,6 +319,7 @@ This project demonstrates:
 ## 👨‍💻 Author
 
 **Dimple Reddy**  
+**Hruthika**
 Computer Science Engineering Student
 
 ---
