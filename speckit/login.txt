@@ -1,0 +1,68 @@
+# File Specification: login.html
+
+## Purpose
+
+Provides user authentication interface.
+
+## Responsibilities
+
+- Accept username
+- Accept password
+- Submit login request
+
+---
+
+## Components
+
+### Login Card
+
+Contains:
+
+- Title
+- Username field
+- Password field
+- Login button
+
+---
+
+## Animations
+
+### Background Animation
+
+Animated gradient background.
+
+### Fade In
+
+Login card enters smoothly.
+
+### Loading Animation
+
+Spinner appears after login submission.
+
+---
+
+## Form Action
+
+POST
+
+Endpoint:
+
+/login
+
+---
+
+## UI Style
+
+Design:
+
+- Glassmorphism
+- Neon effects
+- Apple-inspired aesthetics
+
+---
+
+## Future Enhancements
+
+- Forgot Password
+- Registration Link
+- OAuth Login

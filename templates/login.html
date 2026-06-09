@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+
+/* BACKGROUND ANIMATION */
+body {
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(270deg,#0f2027,#203a43,#2c5364);
+    background-size: 600% 600%;
+    animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* GLOW BLOBS */
+body::before, body::after {
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(0,198,255,0.3);
+    filter: blur(100px);
+}
+
+body::before { top:10%; left:10%; }
+body::after { bottom:10%; right:10%; }
+
+/* LOGIN CARD */
+.login-box {
+    width:380px;
+    padding:40px;
+    border-radius:20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    text-align:center;
+    animation: fadeIn 1s ease;
+}
+
+/* TITLE */
+.login-box h2 {
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+/* INPUT */
+.login-box input {
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+}
+
+/* NEON FOCUS */
+.login-box input:focus {
+    box-shadow:0 0 15px #00c6ff;
+    transform: scale(1.03);
+}
+
+/* BUTTON */
+.login-box button {
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background: linear-gradient(135deg,#00c6ff,#0072ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+/* RIPPLE */
+.login-box button:after {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.3);
+    top:0;
+    left:0;
+    opacity:0;
+}
+
+.login-box button:active:after {
+    opacity:1;
+    transition:0s;
+}
+
+/* HOVER */
+.login-box button:hover {
+    transform: scale(1.05);
+}
+
+/* LOADER */
+#loader {
+    display:none;
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    color:white;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:999;
+}
+
+.spinner {
+    width:50px;
+    height:50px;
+    border:5px solid #ccc;
+    border-top:5px solid #00c6ff;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* FADE */
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loader">
+    <div class="spinner"></div>
+    <p>Logging in...</p>
+</div>
+
+<div class="login-box" id="loginBox">
+
+<h2>🔐 Smart Ride Login</h2>
+
+<form id="loginForm" action="/login" method="post">
+    <input name="username" placeholder="👤 Username" required>
+    <input name="password" type="password" placeholder="🔑 Password" required>
+    <button>Login 🚀</button>
+</form>
+
+</div>
+
+<script>
+document.getElementById("loginForm").onsubmit=function(){
+    document.getElementById("loginBox").style.display="none";
+    document.getElementById("loader").style.display="flex";
+}
+</script>
+
+</body>
+</html>

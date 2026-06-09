@@ -1,0 +1,64 @@
+# File Specification: index.html
+
+## Purpose
+
+Collect trip information from users.
+
+## Responsibilities
+
+- Capture pickup location
+- Capture destination location
+- Submit trip request
+
+---
+
+## Components
+
+### Pickup Field
+
+Uses datalist suggestions.
+
+### Destination Field
+
+Uses datalist suggestions.
+
+### Submit Button
+
+Label:
+
+Find Ride
+
+---
+
+## Supported Locations
+
+- Gachibowli
+- Airport
+- Hitech City
+- Kukatpally
+- Secunderabad
+- Manikonda
+
+---
+
+## Form Action
+
+POST
+
+Endpoint:
+
+/compare
+
+---
+
+## Validation
+
+Pickup and destination must exist in supported locations.
+
+---
+
+## Future Enhancements
+
+- Live Search
+- Google Places API
+- GPS Detection

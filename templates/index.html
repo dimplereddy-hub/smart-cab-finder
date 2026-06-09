@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+body {display:flex;justify-content:center;align-items:center;height:100vh;}
+
+.box {
+width:500px;
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(20px);
+text-align:center;
+}
+
+.input-box {
+display:flex;
+align-items:center;
+background:rgba(255,255,255,0.2);
+padding:12px;
+border-radius:10px;
+margin:10px 0;
+}
+
+.input-box input {
+border:none;
+background:transparent;
+width:100%;
+color:white;
+}
+
+button {
+margin-top:20px;
+padding:12px;
+width:100%;
+border:none;
+border-radius:10px;
+background:#00c6ff;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h1>🚕 Smart Cab Finder</h1>
+
+<form action="/compare" method="post">
+
+<div class="input-box">
+<span>📍</span>
+<input list="locs" name="pickup" placeholder="Pickup">
+</div>
+
+<div class="input-box">
+<span>🏁</span>
+<input list="locs" name="drop" placeholder="Drop">
+</div>
+
+<datalist id="locs">
+<option value="gachibowli">
+<option value="airport">
+<option value="manikonda">
+<option value="hitech city">
+<option value="kukatpally">
+<option value="secunderabad">
+</datalist>
+
+<button>Find Ride 🚀</button>
+
+</form>
+</div>
+</body>
+</html>

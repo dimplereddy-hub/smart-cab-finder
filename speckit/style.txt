@@ -1,0 +1,113 @@
+# File Specification: style.css
+
+## Purpose
+
+Defines application-wide styling.
+
+## Responsibilities
+
+- Theme management
+- Layout styling
+- Card styling
+- Animation effects
+- Responsive behavior
+
+---
+
+## Themes
+
+### Dark Mode
+
+Background:
+
+#0f172a
+
+Text:
+
+#ffffff
+
+---
+
+### Light Mode
+
+Background:
+
+#f5f7fa
+
+Text:
+
+#111111
+
+---
+
+## Components
+
+### Toggle Button
+
+Theme switcher.
+
+---
+
+### Cards
+
+Features:
+
+- Glassmorphism
+- Blur effects
+- Hover animations
+- Shine effect
+
+---
+
+### Map Container
+
+Height:
+
+300px
+
+Rounded corners.
+
+---
+
+### Provider Styles
+
+#### Uber
+
+Black Gradient
+
+#### Ola
+
+Green Gradient
+
+#### Rapido
+
+Yellow Gradient
+
+---
+
+## Visual Effects
+
+- Glow Background
+- Hover Lift
+- Shine Animation
+- Smooth Transitions
+
+---
+
+## Responsive Design
+
+Grid Layout:
+
+auto-fit
+
+Minimum Width:
+
+260px
+
+---
+
+## Future Enhancements
+
+- CSS Variables Expansion
+- Multiple Themes
+- Accessibility Improvements

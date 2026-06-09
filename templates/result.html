@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleTheme()">🌗</button>
+
+<h2>📍 {{ pickup }} → {{ drop }}</h2>
+<p class="subtitle">{{ distance }} km • {{ time }} mins</p>
+
+<div id="map"></div>
+
+<script>
+var map=L.map('map').setView([{{ lat1 }},{{ lon1 }}],12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+L.marker([{{ lat1 }},{{ lon1 }}]).addTo(map).bindPopup("Pickup");
+L.marker([{{ lat2 }},{{ lon2 }}]).addTo(map).bindPopup("Drop");
+
+L.polyline([[{{ lat1 }},{{ lon1 }}],[{{ lat2 }},{{ lon2 }}]],{
+    color:'#00c6ff',
+    weight:4
+}).addTo(map);
+
+function toggleTheme(){
+    document.body.classList.toggle("light");
+}
+</script>
+
+<!-- UBER -->
+<h2>🚗 Uber</h2>
+<div class="grid">
+{% for cab in cabs if "Uber" in cab.name %}
+<div class="card uber {% if cab.name == cheapest.name %}best{% endif %}">
+<h3>{{ cab.name }}</h3>
+<p class="price">₹{{ cab.price }}</p>
+<p class="time">{{ cab.wait }} mins</p>
+
+{% if cab.name == cheapest.name %}
+<span class="badge">Best Value</span>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+
+<!-- OLA -->
+<h2>🛺 Ola</h2>
+<div class="grid">
+{% for cab in cabs if "Ola" in cab.name %}
+<div class="card ola {% if cab.name == cheapest.name %}best{% endif %}">
+<h3>{{ cab.name }}</h3>
+<p class="price">₹{{ cab.price }}</p>
+<p class="time">{{ cab.wait }} mins</p>
+
+{% if cab.name == cheapest.name %}
+<span class="badge">Best Value</span>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+
+<!-- RAPIDO -->
+<h2>🏍 Rapido</h2>
+<div class="grid">
+{% for cab in cabs if "Rapido" in cab.name %}
+<div class="card rapido {% if cab.name == cheapest.name %}best{% endif %}">
+<h3>{{ cab.name }}</h3>
+<p class="price">₹{{ cab.price }}</p>
+<p class="time">{{ cab.wait }} mins</p>
+
+{% if cab.name == cheapest.name %}
+<span class="badge">Best Value</span>
+{% endif %}
+</div>
+{% endfor %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+# File Specification: result.html
+
+## Purpose
+
+Displays cab fare comparison results.
+
+## Responsibilities
+
+- Show route information
+- Display map
+- Show cab fares
+- Highlight cheapest ride
+
+---
+
+## Sections
+
+### Route Summary
+
+Displays:
+
+- Pickup
+- Destination
+- Distance
+- Travel Time
+
+---
+
+### Interactive Map
+
+Features:
+
+- Pickup Marker
+- Drop Marker
+- Route Line
+
+Library:
+
+Leaflet.js
+
+Map Source:
+
+OpenStreetMap
+
+---
+
+### Uber Section
+
+Ride Types:
+
+- Uber Go
+- Uber Non-AC
+- Uber Premium
+
+---
+
+### Ola Section
+
+Ride Types:
+
+- Ola Mini
+- Ola Auto
+- Ola Sedan
+
+---
+
+### Rapido Section
+
+Ride Types:
+
+- Rapido Bike
+- Rapido Auto
+- Rapido Cab
+
+---
+
+## Cheapest Ride Logic
+
+System highlights:
+
+- Lowest fare
+
+Badge:
+
+Best Value
+
+---
+
+## Theme Support
+
+Dark Mode
+
+Light Mode
+
+Theme Toggle Button
+
+---
+
+## Future Enhancements
+
+- Sort by Price
+- Sort by ETA
+- Fare Charts
+- Route Optimization
