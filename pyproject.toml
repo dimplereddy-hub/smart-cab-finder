@@ -1,0 +1,91 @@
+[project]
+name = "gitlab-compliance-checker"
+version = "0.1.0"
+description = "A Python tool to check GitLab project compliance with predefined rules."
+authors = [
+  { name = "Lokesh Manchala", email = "manchalalokesh2003@gmail.com" }
+]
+readme = "README.md"
+license = { text = "GNU Affero General Public License v3.0" }
+requires-python = ">=3.13"
+dependencies = [
+  "streamlit>=1.42.0",
+  "authlib>=1.3.2",
+  "xlsxwriter",
+  "glabflow>=0.1.0a4",
+  "python-dotenv",
+  "plotly",
+  "pyyaml>=6.0.3",
+  "urllib3>=2.7.0",
+  "idna>=3.15",
+  "gitpython>=3.1.50",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "mypy",
+  "types-python-dateutil",
+  "pytest>=9.0.3",
+  "pytest-asyncio",
+  "pytest-cov",
+  "pre-commit",
+  "openpyxl",
+  "vulture",
+  "Babel",
+  "nest-asyncio"
+]
+
+[tool.hatch.build]
+packages = ["src/gitlab_compliance_checker"]
+include = [
+  "README.md",
+  "LICENSE",
+  "CHANGELOG.md",
+  "CONTRIBUTING.md",
+  "CODE_OF_CONDUCT.md",
+  "assets/*"
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "C", "B"]
+ignore = ["E501", "C901", "E701", "N806", "B904", "N999"]
+# exclude = ["tests/*"]
+
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = [".", "src"]
+asyncio_mode = "auto"
+
+[project.urls]
+"Homepage" = "https://code.swecha.org/tools/gitlab-compliance-checker"
+"Issue Tracker" = "https://code.swecha.org/tools/gitlab-compliance-checker/-/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "nest-asyncio>=1.6.0",
+    "openpyxl>=3.1.5",
+    "pytest-asyncio>=1.3.0",
+    "pytest-cov>=7.1.0",
+    "types-python-dateutil>=2.9.0.20250516",
+    "types-pyyaml>=6.0.12.20250915",
+    "uv>=0.11.15",
+    "vulture>=2.14",
+]
+
+[tool.vulture]
+exclude = ["*__init__.py", "tests/", "migrations/", "venv/", ".venv/"]
+min_confidence = 80
+paths = ["."]
